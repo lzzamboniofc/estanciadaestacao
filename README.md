@@ -34,8 +34,8 @@ As fotografias externas (Unsplash) são apenas ilustrativas, e não fotos da emp
 A base visual foi construída para telas pequenas e expandida para tablet e desktop. Foram avaliadas larguras de 320, 360, 390, 430, 768, 1024 e 1440 px, sem rolagem horizontal do documento. Testes automatizados do menu, da galeria, da logo e do botão de rota passaram nas larguras 320, 390, 768, 1024 e 1440 px.
 
 
-## Cardápio interativo (11/10/2026)
+## Cardápio para consulta
 
-Cardápio integrado a partir de https://estanciadaestacao.my.canva.site/ . Dados editáveis em `index.html`, CSS em `css/style.css` e filtros/busca em `js/main.js`. Os preços das seções comuns foram transcritos; o cardápio-fonte apresenta **duas tabelas com valores conflitantes** para Brisket & Mac’n Cheese (98 e 139), Pork Ribs (98 e 99), Bandeja Texas (190 e 239) e Linguiça Defumada (65 e 75). Essas quatro linhas foram intencionalmente rotuladas “CONSULTE” até validação com a empresa. Pedidos presenciais diretamente no caixa; **sem carrinho ou checkout**.
+A seção `#cardapio` apresenta somente os produtos identificados no cardápio original (https://estanciadaestacao.my.canva.site/), sem valores. Organizada por categorias com nomes e descrições, separando sobremesa e milk shakes. O único link de ação na seção é **CARDÁPIO ORIGINAL →**. Não há filtro, busca, carrinho, compra, reserva ou botões por produto.
 
-Após obter preços oficiais atualizados, substitua os quatro rótulos na seção `#cardapio` por preços definitivos.
+Atualize os itens no `index.html` quando houver mudanças confirmadas pelo estabelecimento. Confirme sempre o conteúdo antes de apresentar a versão comercial.

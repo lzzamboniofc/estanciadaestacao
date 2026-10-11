@@ -223,61 +223,6 @@
 
 
 
-  // Cardápio: categorias por toque/teclado e busca instantânea em todos os itens.
-  const menuCategories = $$('.menu-category-btn');
-  const menuGroups = $$('.menu-category');
-  const menuSearch = $('#menuSearch');
-  const menuStatus = $('#menuResultsStatus');
-  const menuEmpty = $('#menuEmpty');
-  let chosenMenuCategory = 'burgers';
-  const cleanText = text => (text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  const refreshMenu = () => {
-    if (!menuSearch) return;
-    const query = cleanText(menuSearch.value.trim());
-    let total = 0;
-    for (const group of menuGroups) {
-      let matches = 0;
-      for (const item of $$('.menu-item',group)) {
-        const match = !query || cleanText(item.textContent).includes(query);
-        item.hidden = !match;
-        if (match) matches++;
-      }
-      const showGroup = query ? matches > 0 : group.dataset.menuCategory === chosenMenuCategory;
-      group.hidden = !showGroup;
-      if (showGroup) total += matches;
-    }
-    if (menuEmpty) menuEmpty.hidden = total !== 0;
-    if (menuStatus) {
-      if (query) {
-        menuStatus.textContent = total ? `RESULTADOS PARA “${menuSearch.value.trim().toUpperCase()}”` : 'NENHUM RESULTADO. TENTE OUTRO TERMO.';
-      } else {
-        const name = menuCategories.find(button => button.dataset.menuTarget === chosenMenuCategory)?.textContent.trim() || 'CARDÁPIO';
-        menuStatus.textContent = chosenMenuCategory === 'burgers' ? 'BURGER NA BRASA. ESCOLHA O SEU.' : `EXPLORE ${name}.`;
-      }
-    }
-    for (const button of menuCategories) {
-      const active = !query && button.dataset.menuTarget === chosenMenuCategory;
-      button.classList.toggle('is-active', active);
-      button.setAttribute('aria-pressed', String(active));
-    }
-  };
-  menuCategories.forEach(button => button.addEventListener('click', () => {
-    chosenMenuCategory = button.dataset.menuTarget;
-    if (menuSearch) menuSearch.value = '';
-    refreshMenu();
-  }));
-  menuSearch?.addEventListener('input', refreshMenu);
-  menuSearch?.addEventListener('keydown', event => { if (event.key === 'Escape') { menuSearch.value = ''; refreshMenu(); } });
-  document.addEventListener('keydown', event => {
-    if (event.key === '/' && !/^(INPUT|TEXTAREA)$/.test(document.activeElement?.tagName || '') && !nav?.classList.contains('is-open') && !lightbox?.classList.contains('is-open')) {
-      event.preventDefault(); menuSearch?.focus();
-    }
-  });
-  $('#menuClearSearch')?.addEventListener('click', () => {
-    chosenMenuCategory = 'burgers'; if (menuSearch) menuSearch.value = ''; refreshMenu(); menuSearch?.focus();
-  });
-  refreshMenu();
-
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
 })();
