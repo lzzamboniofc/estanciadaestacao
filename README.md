@@ -1,69 +1,41 @@
-# Estância da Estação — site institucional
+# Estância da Estação — Site institucional (Mobile First)
 
-Site demonstrativo desenvolvido em **HTML, CSS e JavaScript puro**, pronto para GitHub Pages. Identidade country/western, logo original fornecida e layout **mobile-first**.
+Site em HTML, CSS e JavaScript puro, sem build, preparado para o GitHub Pages.
 
-## Abrir / publicar
+## Publicação
 
-Abra `index.html` localmente ou sirva esta pasta com:
-
-```bash
-python -m http.server 8080
-```
-
-Para publicar no GitHub Pages: **Settings → Pages → Deploy from a branch → main → / (root)**. Não há Node, build nem dependências de instalação.
+No GitHub: Settings → Pages → Deploy from a branch → main → / (root).
 
 ## Estrutura
 
-```text
-/
-├── index.html
-├── css/style.css
-├── js/main.js
-├── assets/
-│   ├── logo-estancia.webp       # Logo original otimizada com transparência
-│   ├── favicon.svg
-│   └── ilustracao-*.svg        # Artes locais de reserva para fotografias externas
-├── robots.txt
-└── README.md
-```
+- `index.html`: conteúdo e metadados.
+- `css/style.css`: design country, escrito mobile-first (breakpoints de 480, 700, 1000 e 1280 px).
+- `js/main.js`: menu responsivo, seção ativa, galeria interativa, FAQ e botão de rota.
+- `assets/logo-estancia.webp`: logo original enviada, otimizada para a web.
+- `assets/ilustracao-*.svg`: artes de reserva para quando fotografias externas não carregarem.
+- `assets/favicon.svg` e `robots.txt`: recursos auxiliares.
 
-## Revisão de design / mobile-first
+## Informações públicas da proposta
 
-A base do CSS foi pensada para celulares pequenos (inclusive 320 px) e expandida progressivamente nos breakpoints **480, 700, 1000 e 1280 px**, mantendo navegação responsiva, proporções, alinhamentos e respiro entre seções.
+**Endereço:** Rodovia Waldomiro Corrêa de Camargo, km 58 — Itu/SP.
+**Horários:** sexta e domingo das 10h às 15h; sábado e feriados das 10h às 16h.
+**Reservas:** não são realizadas.
+**Instagram:** https://www.instagram.com/estanciadaestacao/
+**Facebook:** https://www.facebook.com/estanciadaestacao/
 
-- Texto principal ajustado para evitar quebras inadequadas em telas estreitas.
-- Menu mobile e elementos interativos acessíveis.
-- Botão flutuante **Como chegar** exibido somente após a primeira seção, para não cobrir os CTAs do hero; é ocultado próximo ao rodapé.
-- Galeria com filtros e ampliação, FAQ, indicador de seção ativa, barra de progresso e links de rota.
-- Testes de layout sem rolagem horizontal em **320, 360, 390, 430, 768, 1024 e 1440 px**.
-- Interações verificadas em **320, 390, 768, 1024 e 1440 px**.
+Confirme horários, endereço e conteúdo com o proprietário antes de entregar comercialmente.
 
-## Dados da empresa
+## Fotografias
 
-- **Estância da Estação — Meat & Beer**, Itu/SP; identidade visual indica “Since 2011”.
-- **Endereço do perfil Instagram:** Rodovia Waldomiro Corrêa de Camargo, km 58, Itu/SP.
-- **Funcionamento:** sexta e domingo 10h–15h; sábado e feriados 10h–16h.
-- **Reservas:** não realiza.
-- **Instagram:** https://www.instagram.com/estanciadaestacao/
-- **Facebook:** https://www.facebook.com/estanciadaestacao/
+As fotografias externas (Unsplash) são apenas ilustrativas, e não fotos da empresa. Substitua as URLs `images.unsplash.com` por fotos oficiais autorizadas nas seções de `css/style.css` e nas imagens da galeria em `index.html`. Os SVGs de reserva são locais.
 
-Os horários e a quilometragem devem ser confirmados com o estabelecimento antes de entregar comercialmente; publicações ou informações especiais podem mudar.
+## Revisão de layout
 
-## Fotografias e conteúdos
+A base visual foi construída para telas pequenas e expandida para tablet e desktop. Foram avaliadas larguras de 320, 360, 390, 430, 768, 1024 e 1440 px, sem rolagem horizontal do documento. Testes automatizados do menu, da galeria, da logo e do botão de rota passaram nas larguras 320, 390, 768, 1024 e 1440 px.
 
-**As fotografias atualmente usadas são ilustrativas**, com URLs externas do Unsplash. As imagens reais e autorizadas da Estância devem substituir essas fotos na versão comercial.
 
-- No `css/style.css`, substitua `images.unsplash.com` nas seções de hero, essência, sabores e frase central.
-- No `index.html`, substitua os `src` de imagens da galeria por arquivos locais, por exemplo `assets/galeria-01.webp`.
-- Depois de inserir fotos oficiais, retire os avisos que indicam imagens ilustrativas.
-- Confirme informações institucionais e eventuais novidades antes de adicionar cardápio, preços, WhatsApp ou reservas.
+## Cardápio interativo (11/10/2026)
 
-**Observação:** as ilustrações SVG locais funcionam como imagens de apoio quando o serviço externo de fotografias não está disponível. As fontes externas usadas são Barlow Condensed, DM Sans e Rye, com alternativas do sistema.
+Cardápio integrado a partir de https://estanciadaestacao.my.canva.site/ . Dados editáveis em `index.html`, CSS em `css/style.css` e filtros/busca em `js/main.js`. Os preços das seções comuns foram transcritos; o cardápio-fonte apresenta **duas tabelas com valores conflitantes** para Brisket & Mac’n Cheese (98 e 139), Pork Ribs (98 e 99), Bandeja Texas (190 e 239) e Linguiça Defumada (65 e 75). Essas quatro linhas foram intencionalmente rotuladas “CONSULTE” até validação com a empresa. Pedidos presenciais diretamente no caixa; **sem carrinho ou checkout**.
 
-## Checklist antes da venda
-
-- [ ] Inserir fotografias oficiais autorizadas.
-- [ ] Confirmar horário, endereço e textos institucionais.
-- [ ] Revisar conteúdo com o proprietário.
-- [ ] Verificar URLs de rede social e mapas na hospedagem definitiva.
-- [ ] Adicionar o número oficial de contato somente após confirmação.
+Após obter preços oficiais atualizados, substitua os quatro rótulos na seção `#cardapio` por preços definitivos.
