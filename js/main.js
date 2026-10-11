@@ -223,6 +223,35 @@
 
 
 
+  // Navegação do cardápio: categorias em linhas centralizadas, sem scroll horizontal.
+  // Produtos continuam estáticos, sem preços ou botões por item.
+  const categoryButtons = $('.menu-category-btn');
+  const categorySections = $('.menu-category[data-menu-category]');
+  const selectionStatus = $('#menuSelectionStatus');
+
+  function showMenuCategory(categoryId) {
+    const selectedButton = categoryButtons.find(button => button.dataset.menuTarget === categoryId);
+    if (!selectedButton) return;
+    categoryButtons.forEach(button => {
+      const selected = button === selectedButton;
+      button.classList.toggle('is-active', selected);
+      button.setAttribute('aria-pressed', String(selected));
+    });
+    categorySections.forEach(section => {
+      section.hidden = section.dataset.menuCategory !== categoryId;
+    });
+    if (selectionStatus) {
+      selectionStatus.textContent = 'Exibindo a categoria ' + selectedButton.textContent.trim();
+    }
+  }
+
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => showMenuCategory(button.dataset.menuTarget));
+  });
+  if (categoryButtons.length && categorySections.length) {
+    showMenuCategory(categoryButtons[0].dataset.menuTarget);
+  }
+
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
 })();

@@ -36,6 +36,6 @@ A base visual foi construída para telas pequenas e expandida para tablet e desk
 
 ## Cardápio para consulta
 
-A seção `#cardapio` apresenta somente os produtos identificados no cardápio original (https://estanciadaestacao.my.canva.site/), sem valores. Organizada por categorias com nomes e descrições, separando sobremesa e milk shakes. O único link de ação na seção é **CARDÁPIO ORIGINAL →**. Não há filtro, busca, carrinho, compra, reserva ou botões por produto.
+A seção `#cardapio` apresenta somente os produtos identificados no cardápio original (https://estanciadaestacao.my.canva.site/), sem valores. Organizada por categorias selecionáveis em linhas centralizadas com quebra automática (sem rolagem horizontal), separando sobremesa e milk shakes. Os botões servem apenas para alternar categorias, e o único link externo nessa seção é **CARDÁPIO ORIGINAL →**. Não há busca, preços, carrinho, compra, reserva ou botões por produto.
 
 Atualize os itens no `index.html` quando houver mudanças confirmadas pelo estabelecimento. Confirme sempre o conteúdo antes de apresentar a versão comercial.
