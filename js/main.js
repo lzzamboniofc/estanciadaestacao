@@ -225,8 +225,8 @@
 
   // Navegação do cardápio: categorias em linhas centralizadas, sem scroll horizontal.
   // Produtos continuam estáticos, sem preços ou botões por item.
-  const categoryButtons = $('.menu-category-btn');
-  const categorySections = $('.menu-category[data-menu-category]');
+  const categoryButtons = $$('.menu-category-btn');
+  const categorySections = $$('.menu-category[data-menu-category]');
   const selectionStatus = $('#menuSelectionStatus');
 
   function showMenuCategory(categoryId) {
@@ -240,6 +240,9 @@
     categorySections.forEach(section => {
       section.hidden = section.dataset.menuCategory !== categoryId;
     });
+    const content = $('#menuContent');
+    content?.classList.add('has-selection');
+    $('#menuCategoryInstruction')?.setAttribute('hidden', '');
     if (selectionStatus) {
       selectionStatus.textContent = 'Exibindo a categoria ' + selectedButton.textContent.trim();
     }
@@ -248,9 +251,7 @@
   categoryButtons.forEach(button => {
     button.addEventListener('click', () => showMenuCategory(button.dataset.menuTarget));
   });
-  if (categoryButtons.length && categorySections.length) {
-    showMenuCategory(categoryButtons[0].dataset.menuTarget);
-  }
+  // Nenhuma categoria aberta inicialmente; exibir somente após o clique.
 
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
