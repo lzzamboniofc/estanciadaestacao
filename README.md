@@ -39,3 +39,11 @@ A base visual foi construída para telas pequenas e expandida para tablet e desk
 A seção `#cardapio` apresenta somente os produtos identificados no cardápio original (https://estanciadaestacao.my.canva.site/), sem valores. Organizada por categorias selecionáveis em linhas centralizadas com quebra automática (sem rolagem horizontal), separando sobremesa e milk shakes. Os botões servem apenas para alternar categorias, e o único link externo nessa seção é **CARDÁPIO ORIGINAL →**. Não há busca, preços, carrinho, compra, reserva ou botões por produto.
 
 Atualize os itens no `index.html` quando houver mudanças confirmadas pelo estabelecimento. Confirme sempre o conteúdo antes de apresentar a versão comercial.
+
+## Revisão de código (11/10/2026)
+
+- Restaurado o estado inicial dos filtros: todos os tópicos começam fechados; nenhum botão selecionado antes do clique.
+- Verificados IDs, links de âncora, referências de arquivos, CSS, sintaxe JavaScript e JSON-LD.
+- Corrigido espaçamento ocioso na seção do cardápio antes da seleção, em resoluções maiores.
+- Endereço canonical, Open Graph e imagem do JSON-LD configurados para a URL atual do GitHub Pages. **Trocar essas URLs quando houver domínio próprio.**
+- Preços seguem ocultos, com apenas um link para o cardápio original e filtros de categorias sem overflow.
