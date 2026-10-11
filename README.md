@@ -1,78 +1,69 @@
 # Estância da Estação — site institucional
 
-**Site demonstrativo** desenvolvido em **HTML, CSS e JavaScript puro**, sem frameworks, build ou banco de dados. Visual country/western, adaptado para desktop, tablet e celular.
+Site demonstrativo desenvolvido em **HTML, CSS e JavaScript puro**, pronto para GitHub Pages. Identidade country/western, logo original fornecida e layout **mobile-first**.
 
-## Abrir o site
+## Abrir / publicar
 
-Basta abrir `index.html` em um navegador com internet. Para testar em servidor local:
+Abra `index.html` localmente ou sirva esta pasta com:
 
 ```bash
 python -m http.server 8080
 ```
 
-Acesse `http://localhost:8080`.
+Para publicar no GitHub Pages: **Settings → Pages → Deploy from a branch → main → / (root)**. Não há Node, build nem dependências de instalação.
 
 ## Estrutura
 
 ```text
-EstanciaDaEstacao/
-├── index.html               # Conteúdo, SEO e metadados estruturados
-├── css/style.css            # Identidade visual e responsividade
-├── js/main.js               # Navegação, efeitos, galeria e utilidades
+/
+├── index.html
+├── css/style.css
+├── js/main.js
 ├── assets/
-│   ├── logo-original.webp   # Logo enviada, recortada, com fundo preto
-│   ├── logo-transparente.png# Logo enviada, com transparência
-│   ├── favicon.svg          # Ícone estilizado para navegador
-│   └── ilustracao-*.svg     # 6 ilustrações locais de fallback
+│   ├── logo-estancia.webp       # Logo original otimizada com transparência
+│   ├── favicon.svg
+│   └── ilustracao-*.svg        # Artes locais de reserva para fotografias externas
 ├── robots.txt
 └── README.md
 ```
 
-## O que funciona
+## Revisão de design / mobile-first
 
-- Menu mobile acessível, com fechamento por Escape e clique nos links.
-- Navegação entre seções e indicação da seção ativa.
-- Animações de entrada com respeito à configuração de reduzir movimento.
-- Filtros de galeria **Todos / Sabores / Atmosfera**.
-- Ampliação das fotos com navegação pelas setas, teclado e gesto lateral no celular.
-- FAQ expansível, cópia do endereço, barra de progresso, botões de rota no Google Maps.
-- Links para Instagram e Facebook oficiais; layout de mapa incorporado.
-- Metadados para buscadores e estrutura JSON-LD Restaurant.
+A base do CSS foi pensada para celulares pequenos (inclusive 320 px) e expandida progressivamente nos breakpoints **480, 700, 1000 e 1280 px**, mantendo navegação responsiva, proporções, alinhamentos e respiro entre seções.
 
-## Informações utilizadas
+- Texto principal ajustado para evitar quebras inadequadas em telas estreitas.
+- Menu mobile e elementos interativos acessíveis.
+- Botão flutuante **Como chegar** exibido somente após a primeira seção, para não cobrir os CTAs do hero; é ocultado próximo ao rodapé.
+- Galeria com filtros e ampliação, FAQ, indicador de seção ativa, barra de progresso e links de rota.
+- Testes de layout sem rolagem horizontal em **320, 360, 390, 430, 768, 1024 e 1440 px**.
+- Interações verificadas em **320, 390, 768, 1024 e 1440 px**.
 
-- **Empresa:** Estância da Estação — Burger & BBQ, Itu/SP; logo indica "Since 2011".
-- **Endereço informado no Instagram:** Rodovia Waldomiro Corrêa de Camargo, km 58, Itu/SP.
-- **Horários informados no Instagram:** sexta e domingo 10h–15h; sábado e feriados 10h–16h.
-- **Política de reservas:** não realizam reservas.
+## Dados da empresa
+
+- **Estância da Estação — Meat & Beer**, Itu/SP; identidade visual indica “Since 2011”.
+- **Endereço do perfil Instagram:** Rodovia Waldomiro Corrêa de Camargo, km 58, Itu/SP.
+- **Funcionamento:** sexta e domingo 10h–15h; sábado e feriados 10h–16h.
+- **Reservas:** não realiza.
 - **Instagram:** https://www.instagram.com/estanciadaestacao/
 - **Facebook:** https://www.facebook.com/estanciadaestacao/
 
-**Importante:** a captura do Instagram foi considerada fonte principal para horário e km da rodovia. Diretórios de terceiros variam entre *km 57,5* e *km 58*; confirme os dados antes da publicação comercial. Também confirme se o horário de feriados permanece assim. Não foi incluído WhatsApp porque não foi fornecido um contato oficial confirmado.
+Os horários e a quilometragem devem ser confirmados com o estabelecimento antes de entregar comercialmente; publicações ou informações especiais podem mudar.
 
-## Fotos — substitua antes de publicar para a empresa
+## Fotografias e conteúdos
 
-As fotos culinárias e de ambiente usadas **são imagens ilustrativas externas do Unsplash**, não fotografias reais da Estância. O navegador necessita de conexão para exibir essas fotos; sem ela, ilustrações locais de fallback mantêm a aparência e a galeria acessíveis. Antes da entrega final ao negócio, obtenha imagens oficiais/autorizadas e substitua as URLs nos seguintes arquivos:
+**As fotografias atualmente usadas são ilustrativas**, com URLs externas do Unsplash. As imagens reais e autorizadas da Estância devem substituir essas fotos na versão comercial.
 
-1. `css/style.css`: procure por `images.unsplash.com` nas classes `.hero-photo`, `.about-photo`, `.flavor-image--bbq`, `.flavor-image--burger`, `.flavor-image--country` e `.statement-image`.
-2. `index.html`: procure por `images.unsplash.com` nos seis `<img>` da galeria e troque o `src` por `assets/nome-da-foto.jpg`.
-3. Remova/ajuste os dois avisos de **imagens ilustrativas** no HTML após inserir fotografias reais.
+- No `css/style.css`, substitua `images.unsplash.com` nas seções de hero, essência, sabores e frase central.
+- No `index.html`, substitua os `src` de imagens da galeria por arquivos locais, por exemplo `assets/galeria-01.webp`.
+- Depois de inserir fotos oficiais, retire os avisos que indicam imagens ilustrativas.
+- Confirme informações institucionais e eventuais novidades antes de adicionar cardápio, preços, WhatsApp ou reservas.
 
-**Fontes utilizadas:** Barlow Condensed, DM Sans e Rye, via Google Fonts. Há fontes de sistema como alternativa. A marca/logotipo é propriedade de seu titular, e está presente exclusivamente nesta proposta.
+**Observação:** as ilustrações SVG locais funcionam como imagens de apoio quando o serviço externo de fotografias não está disponível. As fontes externas usadas são Barlow Condensed, DM Sans e Rye, com alternativas do sistema.
 
-## Identidade visual
+## Checklist antes da venda
 
-No início de `css/style.css`, altere as variáveis `--wine`, `--gold`, `--paper` e `--coal`. Se houver novos dados, atualize o HTML nas áreas *Visite-nos*, FAQ, rodapé, barra superior e o JSON-LD.
-
-## Publicação
-
-Pode ser hospedado diretamente no **GitHub Pages (`main` / `/root`)**, Netlify, Vercel ou qualquer hospedagem estática: o `index.html` já está na raiz. Ao publicar em domínio definitivo, atualize `og:image` com URL absoluta (https://...). Se desejar imagens funcionando offline, baixe fotos licenciadas localmente e use caminhos `assets/...`.
-
-## Revisão antes da venda
-
-- [ ] Trocar fotos ilustrativas por fotos reais da empresa, com autorização.
-- [ ] Validar horários especiais e endereço com o responsável.
-- [ ] Confirmar cardápio, informações e texto institucional.
-- [ ] Caso queira contato por WhatsApp, confirmar número antes de adicionar.
-- [ ] Testar mapa/rotas e compartilhamento no domínio final.
-- [ ] Rever textos com a empresa para refletir a história real do negócio.
+- [ ] Inserir fotografias oficiais autorizadas.
+- [ ] Confirmar horário, endereço e textos institucionais.
+- [ ] Revisar conteúdo com o proprietário.
+- [ ] Verificar URLs de rede social e mapas na hospedagem definitiva.
+- [ ] Adicionar o número oficial de contato somente após confirmação.
