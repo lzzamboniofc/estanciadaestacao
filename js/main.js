@@ -106,7 +106,6 @@
   const lightbox = $('#lightbox');
   const lightboxImg = $('#lightboxImage');
   const lightboxCaption = $('#lightboxCaption');
-  const lightboxCounter = $('#lightboxCounter');
   let visibleGalleryItems = galleryItems;
   let currentIndex = 0;
   let previousFocus = null;
@@ -133,7 +132,6 @@
     lightboxImg.src = image.dataset.full || image.currentSrc || image.src;
     lightboxImg.alt = image.alt;
     lightboxCaption.textContent = $('.gallery-caption strong', item)?.textContent || image.alt;
-    lightboxCounter.textContent = `${String(currentIndex + 1).padStart(2, '0')} / ${String(visibleGalleryItems.length).padStart(2, '0')}`;
   }
   function openLightbox(item) {
     previousFocus = document.activeElement;
@@ -250,8 +248,12 @@
     }
     if (menuEmpty) menuEmpty.hidden = total !== 0;
     if (menuStatus) {
-      if (query) menuStatus.textContent = total ? `${total} ${total === 1 ? 'ITEM ENCONTRADO' : 'ITENS ENCONTRADOS'} PARA “${menuSearch.value.trim().toUpperCase()}”` : 'NENHUM RESULTADO. TENTE OUTRO TERMO.';
-      else menuStatus.textContent = (chosenMenuCategory === 'burgers' ? 'BURGER NA BRASA. ESCOLHA O SEU.' : `${total} ${total === 1 ? 'ITEM DISPONÍVEL' : 'ITENS NESTA CATEGORIA'}.`);
+      if (query) {
+        menuStatus.textContent = total ? `RESULTADOS PARA “${menuSearch.value.trim().toUpperCase()}”` : 'NENHUM RESULTADO. TENTE OUTRO TERMO.';
+      } else {
+        const name = menuCategories.find(button => button.dataset.menuTarget === chosenMenuCategory)?.textContent.trim() || 'CARDÁPIO';
+        menuStatus.textContent = chosenMenuCategory === 'burgers' ? 'BURGER NA BRASA. ESCOLHA O SEU.' : `EXPLORE ${name}.`;
+      }
     }
     for (const button of menuCategories) {
       const active = !query && button.dataset.menuTarget === chosenMenuCategory;
