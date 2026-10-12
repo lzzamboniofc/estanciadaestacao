@@ -288,21 +288,25 @@
         </div>
         <div class="motion-grid">
           <figure class="motion-card reveal">
-            <div class="motion-festival-player">
+            <div class="motion-video-player">
               <video id="festivalVideo" playsinline preload="none" poster="assets/videos/old-car-country-fest-poster.webp" aria-label="Vídeo do Old Car Country Fest na Estância da Estação com carros clássicos, público e música ao vivo"></video>
-              <button id="festivalPlay" class="motion-festival-play" type="button" aria-controls="festivalVideo" aria-label="Assistir ao vídeo Old Car Country Fest">
-                <span class="motion-festival-play-icon" aria-hidden="true">▶</span>
-                <span class="motion-festival-play-label">ASSISTIR AO FESTIVAL</span>
+              <button id="festivalPlay" class="motion-video-play" type="button" aria-controls="festivalVideo" aria-label="Assistir ao vídeo Old Car Country Fest">
+                <span class="motion-video-play-icon" aria-hidden="true">▶</span>
+                <span class="motion-video-play-label">ASSISTIR AO FESTIVAL</span>
               </button>
-              <p id="festivalStatus" class="motion-festival-status" role="status" aria-live="polite" hidden></p>
+              <p id="festivalStatus" class="motion-video-status" role="status" aria-live="polite" hidden></p>
             </div>
             <figcaption><span class="motion-tag">OLD CAR COUNTRY FEST</span><strong>CLÁSSICOS, MÚSICA E BOAS HISTÓRIAS</strong><p>Carros antigos, música ao vivo e a atmosfera country que faz cada encontro ser especial.</p></figcaption>
           </figure>
           <figure class="motion-card reveal">
-            <video controls playsinline preload="none" poster="assets/videos/bandeja-texas-poster.webp" aria-label="Vídeo de bandeja de carnes e acompanhamentos da Estância da Estação">
-              <source src="assets/videos/bandeja-texas.mp4" type="video/mp4">
-              Seu navegador não suporta vídeos HTML5.
-            </video>
+            <div class="motion-video-player">
+              <video id="texasVideo" playsinline preload="none" poster="assets/videos/bandeja-texas-poster.webp" aria-label="Bandeja Texas da Estância com brisket, pork ribs, pulled pork, linguiça defumada e acompanhamentos"></video>
+              <button id="texasPlay" class="motion-video-play" type="button" aria-controls="texasVideo" aria-label="Assistir ao vídeo da Bandeja Texas">
+                <span class="motion-video-play-icon" aria-hidden="true">▶</span>
+                <span class="motion-video-play-label">ASSISTIR À BANDEJA TEXAS</span>
+              </button>
+              <p id="texasStatus" class="motion-video-status" role="status" aria-live="polite" hidden></p>
+            </div>
             <figcaption><span class="motion-tag">O ESPÍRITO DO BBQ</span><strong>UMA BANDEJA, MUITAS HISTÓRIAS</strong><p>Carne, brasa e os acompanhamentos que fazem parte da experiência.</p></figcaption>
           </figure>
         </div>

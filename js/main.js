@@ -266,7 +266,7 @@
   festivalPlay?.addEventListener('click', async () => {
     if (!festivalVideo || festivalPlay.disabled) return;
     festivalPlay.disabled = true;
-    const playLabel = $('.motion-festival-play-label', festivalPlay);
+    const playLabel = $('.motion-video-play-label', festivalPlay);
     if (playLabel) playLabel.textContent = 'CARREGANDO O FESTIVAL...';
     if (festivalStatus) festivalStatus.hidden = true;
     try {
@@ -295,6 +295,43 @@
   window.addEventListener('pagehide', () => {
     if (festivalObjectUrl) URL.revokeObjectURL(festivalObjectUrl);
   }, { once: true });
+
+
+  // Bandeja Texas: mesmo visual do festival, mas arquivo MP4 pequeno
+  // carregado diretamente só depois do clique.
+  const texasVideo = $('#texasVideo');
+  const texasPlay = $('#texasPlay');
+  const texasStatus = $('#texasStatus');
+  const texasLabel = texasPlay ? $('.motion-video-play-label', texasPlay) : null;
+  const texasError = () => {
+    if (!texasPlay) return;
+    texasPlay.hidden = false;
+    texasPlay.disabled = false;
+    if (texasLabel) texasLabel.textContent = 'TENTAR NOVAMENTE';
+    if (texasStatus) {
+      texasStatus.textContent = 'Não foi possível carregar o vídeo. Toque para tentar novamente.';
+      texasStatus.hidden = false;
+    }
+  };
+  texasVideo?.addEventListener('error', texasError);
+  texasPlay?.addEventListener('click', () => {
+    if (!texasVideo || texasPlay.disabled) return;
+    texasPlay.disabled = true;
+    if (texasStatus) texasStatus.hidden = true;
+    texasVideo.src = 'assets/videos/bandeja-texas.mp4';
+    texasVideo.controls = true;
+    texasVideo.load();
+    texasPlay.hidden = true;
+    const playback = texasVideo.play();
+    playback?.catch(() => {
+      // Em navegadores restritivos, os controles nativos ficam disponíveis.
+      if (texasVideo.error) texasError();
+    });
+  });
+
+  // Nunca reproduzir os dois vídeos simultaneamente.
+  festivalVideo?.addEventListener('play', () => texasVideo?.pause());
+  texasVideo?.addEventListener('play', () => festivalVideo?.pause());
 
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();

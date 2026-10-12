@@ -51,15 +51,14 @@ Atualize os itens no `index.html` quando houver mudanças confirmadas pelo estab
 
 ## Vídeos da Estância
 
-Foram integrados dois vídeos reais na seção **Sabor que ganha vida** (após a galeria). Os arquivos foram convertidos para MP4 (H.264), com 540 px de largura e 24 fps, para reduzir o tamanho. Como os vídeos servem de apoio visual, foram exportados sem áudio.
+A seção **A Estância em movimento** (após a galeria) apresenta o Old Car Country Fest e a Bandeja Texas. Ambos usam a mesma capa, botão de play e controles nativos após o clique. O vídeo gastronômico foi otimizado em MP4 (H.264), sem áudio, para reduzir o tamanho.
 
-- `assets/videos/brasa-detalhes.mp4` — close dos defumados e acompanhamentos.
 - `assets/videos/bandeja-texas.mp4` — bandeja de carnes e acompanhamentos.
 - `assets/videos/*-poster.webp` — imagem inicial exibida sem baixar o vídeo.
 
-Os clipes não são reproduzidos automaticamente. `preload="none"` evita carregar vídeos antes de o visitante iniciar a reprodução, especialmente no celular.
+Os vídeos só carregam após interação: no festival os oito segmentos são baixados sob demanda; na Bandeja Texas o MP4 otimizado é carregado ao tocar **ASSISTIR À BANDEJA TEXAS**. A descrição breve **O ESPÍRITO DO BBQ / UMA BANDEJA, MUITAS HISTÓRIAS** foi mantida. A lista detalhada de ingredientes permanece no cardápio.
 ## Old Car Country Fest
 
-O primeiro card de vídeos apresenta o Old Car Country Fest, com carros clássicos, público e música ao vivo. O vídeo completo (aproximadamente 78 segundos, formato H.264/AAC) está publicado no GitHub Pages em oito partes binárias `assets/videos/old-car-country-fest.part01` até `part08`, reconstruídas somente após o visitante selecionar **ASSISTIR AO FESTIVAL**. A capa é `assets/videos/old-car-country-fest-poster.webp`. A reprodução nunca é iniciada automaticamente no carregamento da página. O segundo vídeo da bandeja BBQ permanece inalterado.
+O primeiro card de vídeos apresenta o Old Car Country Fest, com carros clássicos, público e música ao vivo. O vídeo completo (aproximadamente 78 segundos, formato H.264/AAC) está publicado no GitHub Pages em oito partes binárias `assets/videos/old-car-country-fest.part01` até `part08`, reconstruídas somente após o visitante selecionar **ASSISTIR AO FESTIVAL**. A capa é `assets/videos/old-car-country-fest-poster.webp`. A reprodução nunca é iniciada automaticamente no carregamento da página. O segundo vídeo da Bandeja Texas apresenta o mesmo registro enviado novamente em 12/10/2026 (arquivos de origem idênticos), aproveitando a versão previamente otimizada para não duplicar uploads.
 
 Para manutenção futura, caso seja possível enviar o MP4 inteiro diretamente ao repositório, pode-se simplificar o carregamento substituindo os segmentos por um arquivo `old-car-country-fest.mp4` e um `<source>` convencional.
