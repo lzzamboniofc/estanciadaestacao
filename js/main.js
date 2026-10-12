@@ -253,6 +253,49 @@
   });
   // Nenhuma categoria aberta inicialmente; exibir somente após o clique.
 
+
+  // Old Car Country Fest: reúne as partes do vídeo local apenas quando o visitante clicar.
+  // Essa estratégia mantém o carregamento inicial leve no GitHub Pages.
+  const festivalVideo = $('#festivalVideo');
+  const festivalPlay = $('#festivalPlay');
+  const festivalStatus = $('#festivalStatus');
+  let festivalObjectUrl = null;
+  const festivalSegments = Array.from({ length: 8 }, (_, index) =>
+    'assets/videos/old-car-country-fest.part' + String(index + 1).padStart(2, '0')
+  );
+  festivalPlay?.addEventListener('click', async () => {
+    if (!festivalVideo || festivalPlay.disabled) return;
+    festivalPlay.disabled = true;
+    const playLabel = $('.motion-festival-play-label', festivalPlay);
+    if (playLabel) playLabel.textContent = 'CARREGANDO O FESTIVAL...';
+    if (festivalStatus) festivalStatus.hidden = true;
+    try {
+      const bytes = await Promise.all(festivalSegments.map(async path => {
+        const response = await fetch(path, { cache: 'force-cache' });
+        if (!response.ok) throw new Error('Falha ao carregar ' + path);
+        return response.arrayBuffer();
+      }));
+      const file = new Blob(bytes, { type: 'video/mp4' });
+      if (file.size !== 4671619) throw new Error('Vídeo incompleto');
+      festivalObjectUrl = URL.createObjectURL(file);
+      festivalVideo.src = festivalObjectUrl;
+      festivalVideo.controls = true;
+      festivalVideo.load();
+      festivalPlay.hidden = true;
+      try { await festivalVideo.play(); } catch { /* Os controles continuam disponíveis. */ }
+    } catch {
+      festivalPlay.disabled = false;
+      if (playLabel) playLabel.textContent = 'TENTAR NOVAMENTE';
+      if (festivalStatus) {
+        festivalStatus.textContent = 'Não foi possível carregar o vídeo. Toque para tentar novamente.';
+        festivalStatus.hidden = false;
+      }
+    }
+  });
+  window.addEventListener('pagehide', () => {
+    if (festivalObjectUrl) URL.revokeObjectURL(festivalObjectUrl);
+  }, { once: true });
+
   const year = $('#year');
   if (year) year.textContent = new Date().getFullYear();
 })();

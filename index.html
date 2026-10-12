@@ -281,18 +281,22 @@
       <div class="container">
         <div class="motion-heading reveal">
           <div class="motion-heading-copy">
-            <div class="eyebrow eyebrow--light"><span class="eyebrow-line"></span> DA BRASA PARA A MESA</div>
-            <h2 class="section-title" id="motionTitle">SABOR QUE <em>GANHA VIDA.</em></h2>
+            <div class="eyebrow eyebrow--light"><span class="eyebrow-line"></span> DA ESTRADA À BRASA</div>
+            <h2 class="section-title" id="motionTitle">A ESTÂNCIA EM <em>MOVIMENTO.</em></h2>
           </div>
-          <p>Um gostinho da Estância em movimento. Dê o play e conheça os detalhes do nosso BBQ.</p>
+          <p>Do Old Car Country Fest aos sabores da casa: histórias que merecem ser vividas. Dê o play e entre nesse clima.</p>
         </div>
         <div class="motion-grid">
           <figure class="motion-card reveal">
-            <video controls playsinline preload="none" poster="assets/videos/brasa-detalhes-poster.webp" aria-label="Vídeo de detalhes da bandeja defumada da Estância da Estação">
-              <source src="assets/videos/brasa-detalhes.mp4" type="video/mp4">
-              Seu navegador não suporta vídeos HTML5.
-            </video>
-            <figcaption><span class="motion-tag">FEITO COM TEMPO</span><strong>O SEGREDO ESTÁ NOS DETALHES</strong><p>Cortes defumados, acompanhamentos e muito sabor.</p></figcaption>
+            <div class="motion-festival-player">
+              <video id="festivalVideo" playsinline preload="none" poster="assets/videos/old-car-country-fest-poster.webp" aria-label="Vídeo do Old Car Country Fest na Estância da Estação com carros clássicos, público e música ao vivo"></video>
+              <button id="festivalPlay" class="motion-festival-play" type="button" aria-controls="festivalVideo" aria-label="Assistir ao vídeo Old Car Country Fest">
+                <span class="motion-festival-play-icon" aria-hidden="true">▶</span>
+                <span class="motion-festival-play-label">ASSISTIR AO FESTIVAL</span>
+              </button>
+              <p id="festivalStatus" class="motion-festival-status" role="status" aria-live="polite" hidden></p>
+            </div>
+            <figcaption><span class="motion-tag">OLD CAR COUNTRY FEST</span><strong>CLÁSSICOS, MÚSICA E BOAS HISTÓRIAS</strong><p>Carros antigos, música ao vivo e a atmosfera country que faz cada encontro ser especial.</p></figcaption>
           </figure>
           <figure class="motion-card reveal">
             <video controls playsinline preload="none" poster="assets/videos/bandeja-texas-poster.webp" aria-label="Vídeo de bandeja de carnes e acompanhamentos da Estância da Estação">

@@ -58,3 +58,8 @@ Foram integrados dois vídeos reais na seção **Sabor que ganha vida** (após a
 - `assets/videos/*-poster.webp` — imagem inicial exibida sem baixar o vídeo.
 
 Os clipes não são reproduzidos automaticamente. `preload="none"` evita carregar vídeos antes de o visitante iniciar a reprodução, especialmente no celular.
+## Old Car Country Fest
+
+O primeiro card de vídeos apresenta o Old Car Country Fest, com carros clássicos, público e música ao vivo. O vídeo completo (aproximadamente 78 segundos, formato H.264/AAC) está publicado no GitHub Pages em oito partes binárias `assets/videos/old-car-country-fest.part01` até `part08`, reconstruídas somente após o visitante selecionar **ASSISTIR AO FESTIVAL**. A capa é `assets/videos/old-car-country-fest-poster.webp`. A reprodução nunca é iniciada automaticamente no carregamento da página. O segundo vídeo da bandeja BBQ permanece inalterado.
+
+Para manutenção futura, caso seja possível enviar o MP4 inteiro diretamente ao repositório, pode-se simplificar o carregamento substituindo os segmentos por um arquivo `old-car-country-fest.mp4` e um `<source>` convencional.
