@@ -27,7 +27,7 @@ Confirme horários, endereço e conteúdo com o proprietário antes de entregar 
 
 ## Fotografias
 
-As fotografias externas (Unsplash) são apenas ilustrativas, e não fotos da empresa. Substitua as URLs `images.unsplash.com` por fotos oficiais autorizadas nas seções de `css/style.css` e nas imagens da galeria em `index.html`. Os SVGs de reserva são locais.
+O projeto agora inclui fotografias reais da Estância da Estação em hero, seção de essência, sabores, bloco de destaque e galeria. Os SVGs de reserva continuam locais para servir como apoio visual. Há ainda dois vídeos enviados separadamente que podem ser integrados em uma próxima revisão, se desejar.
 
 ## Revisão de layout
 
@@ -47,3 +47,14 @@ Atualize os itens no `index.html` quando houver mudanças confirmadas pelo estab
 - Corrigido espaçamento ocioso na seção do cardápio antes da seleção, em resoluções maiores.
 - Endereço canonical, Open Graph e imagem do JSON-LD configurados para a URL atual do GitHub Pages. **Trocar essas URLs quando houver domínio próprio.**
 - Preços seguem ocultos, com apenas um link para o cardápio original e filtros de categorias sem overflow.
+
+
+## Vídeos da Estância
+
+Foram integrados dois vídeos reais na seção **Sabor que ganha vida** (após a galeria). Os arquivos foram convertidos para MP4 (H.264), com 540 px de largura e 24 fps, para reduzir o tamanho. Como os vídeos servem de apoio visual, foram exportados sem áudio.
+
+- `assets/videos/brasa-detalhes.mp4` — close dos defumados e acompanhamentos.
+- `assets/videos/bandeja-texas.mp4` — bandeja de carnes e acompanhamentos.
+- `assets/videos/*-poster.webp` — imagem inicial exibida sem baixar o vídeo.
+
+Os clipes não são reproduzidos automaticamente. `preload="none"` evita carregar vídeos antes de o visitante iniciar a reprodução, especialmente no celular.
